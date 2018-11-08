@@ -532,7 +532,7 @@ EOF
   fi
 
   new_line
-  show_message warn "In the next step you need to create two TXT records on your DNS as part of the DNS challenge \nPlease wait some time after creating these records before continuing."
+  show_message warn "In the next step you need to create two TXT records on your DNS as part of the DNS challenge \nPlease wait 30 seconds after creating these records before continuing."
   read -n1 -r -p "Press any key to continue..."
 
   # if [[ "${USE_WGET}" == "true" ]];then
@@ -875,7 +875,7 @@ renew()
 
   if [[ "$RENEW" = 'y' || "$RENEW" = 'Y' ]]; then
     new_line
-    show_message warn "If the challenge TXT dosn't exist in your DNS please create them. \nAnd Please don't forget to wait some time after creating records!"
+    show_message warn "If the challenge TXT dosn't exist in your DNS please create them. \nAnd Please don't forget to wait 30 seconds after creating records!"
     read -n1 -r -p "Press any key to continue ..."
 
     ${SUDO} ${CERTBOT} certonly --manual -d "${HOSTNAME}" -d "*.${HOSTNAME}" --agree-tos  --preferred-challenges dns-01  --server https://acme-v02.api.letsencrypt.org/directory
